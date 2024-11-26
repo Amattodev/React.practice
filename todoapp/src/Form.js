@@ -1,0 +1,24 @@
+import { useState } from "react";
+import React from "react";
+
+const Form = ({ addTodo }) => {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTodo(value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+    </form>
+  );
+};
+
+export default Form;
